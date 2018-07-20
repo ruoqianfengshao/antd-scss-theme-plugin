@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 import less from 'less';
-import scssToJson from 'scss-to-json';
+import scssToJson from '@terminus/scss-to-json';
 
 import ExtractVariablesPlugin from './extractVariablesLessPlugin';
 
