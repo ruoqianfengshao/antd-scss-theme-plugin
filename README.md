@@ -2,22 +2,22 @@
     <a targe="_blank" href="https://twitter.com/home?status=antd-scss-theme-plugin%20%E2%80%93%20A%20Webpack%20plugin%20for%20customizing%20Ant%20Design%20with%20an%20SCSS%20theme%20file.%0A%0Ahttps%3A%2F%2Fgithub.com%2Fprncc%2Fantd-scss-theme-plugin">
         <img height="26px" src="https://simplesharebuttons.com/images/somacro/twitter.png"
             alt="Tweet"></a>
-    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//github.com/prncc/antd-scss-theme-plugin">
+    <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//github.com/intoli/antd-scss-theme-plugin">
         <img height="26px" src="https://simplesharebuttons.com/images/somacro/facebook.png"
             alt="Share on Facebook"></a>
     <a target="_blank" href="http://reddit.com/submit?url=https%3A%2F%2Fgithub.com%2Fprncc%2Fantd-scss-theme-plugin&title=antd-scss-theme-plugin%20%E2%80%93%20A%20Webpack%20plugin%20for%20customizing%20Ant%20Design%20with%20SCSS">
         <img height="26px" src="https://simplesharebuttons.com/images/somacro/reddit.png"
             alt="Share on Reddit"></a>
-    <a target="_blank" href="https://news.ycombinator.com/submitlink?u=https://github.com/prncc/antd-scss-theme-plugin&t=antd-scss-theme-plugin%20%E2%80%93%20A%20Webpack%20plugin%20for%20customizing%20Ant%20Design%20with%20SCSS">
+    <a target="_blank" href="https://news.ycombinator.com/submitlink?u=https://github.com/intoli/antd-scss-theme-plugin&t=antd-scss-theme-plugin%20%E2%80%93%20A%20Webpack%20plugin%20for%20customizing%20Ant%20Design%20with%20SCSS">
         <img height="26px" src="resources/y-combinator.png"
             alt="Share on Hacker News"></a>
 </h1>
 
 <p align="left">
-    <a href="https://circleci.com/gh/prncc/antd-scss-theme-plugin/tree/master">
-        <img src="https://img.shields.io/circleci/project/github/prncc/antd-scss-theme-plugin/master.svg"
+    <a href="https://circleci.com/gh/intoli/antd-scss-theme-plugin/tree/master">
+        <img src="https://img.shields.io/circleci/project/github/intoli/antd-scss-theme-plugin/master.svg"
             alt="Build Status"></a>
-    <a href="https://github.com/prncc/antd-scss-theme-plugin/blob/master/LICENSE.md">
+    <a href="https://github.com/intoli/antd-scss-theme-plugin/blob/master/LICENSE.md">
         <img src="https://img.shields.io/npm/l/antd-scss-theme-plugin.svg"
             alt="License"></a>
     <a href="https://www.npmjs.com/package/antd-scss-theme-plugin">
@@ -32,12 +32,25 @@ With it you can:
 2. `@import` Ant Design's [theme](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) and [color](https://github.com/ant-design/ant-design/blob/master/components/style/color/colors.less) variables from your `theme.scss` file.
 3. Hot reload your project when `theme.scss` changes.
 
-For a more detailed overview of the plugin and its usage, check out the [Using Ant Design in Sass-Styled Projects](https://intoli.com/blog/antd-scss-theme-plugin/) article on [Intoli's blog](https://intoli.com/blog/).
+:book: For a more detailed overview of the plugin and its usage, check out the [Using Ant Design in Sass-Styled Projects](https://intoli.com/blog/antd-scss-theme-plugin/) article on [Intoli's blog](https://intoli.com/blog/).
+
+
+### Table of Contents
+
+- [Installation](#installation) - Instructions about installing this Webpack plugin from `npm`.
+- [Configuration](#configuration)
+    - [Step 1. Configure Ant Design to Use Less Stylesheets](#step-1-configure-ant-design-to-use-less-stylesheets) - Instructions for configuring `antd` to use Less instead of pre-compiled CSS.
+    - [Step 2. Use `antd-scss-theme-plugin` in Your Webpack Setup](#step-2-use-antd-scss-theme-plugin-in-your-webpack-setup) - Instructions for enabling this plugin.
+- [Usage](#usage)
+    - [Customize Ant Design's Theme](#customize-ant-designs-theme) - How to specify theme variable overrides in SCSS.
+    - [Use Ant Design's Customized Color and Theme Variables](#use-ant-designs-customized-color-and-theme-variables) - How to import (customized) theme variables in SCSS files throughout your project.
+    - [Live Reload Components when Ant Design Styles Change](#live-reload-components-when-ant-design-styles-change) - A reminder that hot-reloading works with this plugin.
+
 
 
 ## Installation
 
-This plugin is published as [antd-scss-theme-plugin](https://www.npmjs.com/package/antd-scss-theme-plugin) on npm:
+This plugin is published as [antd-scss-theme-plugin](https://www.npmjs.com/package/antd-scss-theme-plugin) on `npm`:
 
 ```bash
 npm install --save-dev antd-scss-theme-plugin
@@ -168,16 +181,16 @@ AntdScssThemePlugin.themify({
 ### Customize Ant Design's Theme
 
 With the project configured, you can customize Ant Design's theme by specifying [Ant Design theme variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less) in your SCSS theme file (e.g., `theme.scss`).
-For example, if `theme.scss` has the following contents:
+For example, if `theme.scss` has the following contents
 
 ```scss
 /* theme.scss */
 $primary-color: #fe8019;
 ```
 
-then your rendered components will look something like this:
+then the interface will no longer be based off of the default blue `#1890ff`, but rather a louder orange `#fe8019`:
 
-![Components with Primary Color #fe8019](https://raw.githubusercontent.com/prncc/antd-scss-theme-plugin/master/resources/orange-sample.png)
+![Effects of Changing Primary Color to #fe8019](https://raw.githubusercontent.com/intoli/antd-scss-theme-plugin/master/resources/blue-orange-comparison.png)
 
 You can customize any Less variable that `antd` uses in this way: just relace `@` with a `$`, e.g., `@info-color` becomes `$info-color`.
 
