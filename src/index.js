@@ -1,8 +1,10 @@
 class AntdScssThemePlugin {
   SCSS_THEME_PATH;
+  DEFAULT_LESS_PATH;
 
-  constructor(scssThemePath) {
+  constructor(scssThemePath, defaultLessPath = 'antd/lib/style/themes/default.less') {
     AntdScssThemePlugin.SCSS_THEME_PATH = scssThemePath;
+    AntdScssThemePlugin.DEFAULT_LESS_PATH = defaultLessPath;
   }
 
   /**

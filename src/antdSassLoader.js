@@ -4,10 +4,8 @@ import { getOptions, urlToRequest } from 'loader-utils';
 import sassLoader from 'sass-loader';
 import importsToResolve from 'sass-loader/lib/importsToResolve';
 
-import { getScssThemePath } from './loaderUtils';
-import {
-  compileThemeVariables,
-} from './utils';
+import { getScssThemePath, getLessThemePath } from './loaderUtils';
+import { compileThemeVariables } from './utils';
 
 
 /**
@@ -41,8 +39,9 @@ export const themeImporter = (themeScssPath, contents) => (url, previousResolve,
 export const overloadSassLoaderOptions = async (options) => {
   const newOptions = { ...options };
   const scssThemePath = getScssThemePath(options);
+  const lessThemePath = getLessThemePath(options);
 
-  const contents = await compileThemeVariables(scssThemePath);
+  const contents = await compileThemeVariables(scssThemePath, lessThemePath);
   const extraImporter = themeImporter(scssThemePath, contents);
 
   let importer;

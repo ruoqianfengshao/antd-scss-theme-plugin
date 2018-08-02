@@ -31,10 +31,12 @@ describe('themeImporter', () => {
 describe('overloadSassLoaderOptions', () => {
   const mockImporter = (url, previous, done) => { done(); };
   const scssThemePath = path.resolve(__dirname, 'data/theme.scss');
+  const lessThemePath = 'antd/lib/style/themes/default.less';
 
   it('adds an extra when given no importers', async () => {
     const overloadedOptions = await overloadSassLoaderOptions({
       scssThemePath,
+      lessThemePath,
     });
     expect(typeof overloadedOptions.importer).toBe('function');
   });
@@ -47,6 +49,7 @@ describe('overloadSassLoaderOptions', () => {
       const overloadedOptions = await overloadSassLoaderOptions({
         importer,
         scssThemePath,
+        lessThemePath,
       });
 
       expect(overloadedOptions.importer.length).toBe(2);
